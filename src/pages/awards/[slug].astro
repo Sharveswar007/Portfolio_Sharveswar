@@ -20,7 +20,7 @@ const { award } = Astro.props;
   url={`https://protfolio-sharveswar.vercel.app/awards/${award.slug}`}
 >
   <div class="min-h-screen bg-midnight-black light:bg-cream-ivory text-cream-soft light:text-midnight-black pt-32 pb-24 transition-colors duration-500">
-    <div class="max-w-4xl mx-auto px-6 w-full flex flex-col items-center">
+    <div class="max-w-5xl mx-auto px-6 w-full flex flex-col items-center">
       
       <div class="w-full flex items-center justify-between mb-12">
         <a 
@@ -36,6 +36,11 @@ const { award } = Astro.props;
 
       <!-- Header Section -->
       <div class="text-center mb-16 space-y-4">
+        <div class="flex justify-center mb-6">
+          <div class="w-20 h-20 rounded-2xl bg-white/5 light:bg-black/5 flex items-center justify-center p-4 border border-white/10 light:border-black/10 shadow-lg">
+             <img src={award.logo} alt={award.issuer} class="w-full h-full object-contain opacity-80" />
+          </div>
+        </div>
         <span class="inline-block text-sm font-mono tracking-[0.2em] px-3 py-1 rounded-full border border-white/10 light:border-black/10" style={`color: ${award.color}; border-color: ${award.color}40`}>
           {award.issuer}
         </span>
@@ -47,37 +52,56 @@ const { award } = Astro.props;
         </p>
       </div>
 
-      <!-- Original Certificate Image Container -->
-      <div class="w-full rounded-2xl overflow-hidden border border-white/10 light:border-black/10 shadow-2xl relative bg-black/20 light:bg-white/50 backdrop-blur-sm p-4 md:p-8 flex items-center justify-center min-h-[400px]">
-        {award.fullImage ? (
-          <img 
-            src={award.fullImage} 
-            alt={`${award.title} Certificate`} 
-            class="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-          />
-        ) : (
-          <div class="text-white/40 light:text-black/40 font-mono text-sm">Certificate Image Pending</div>
-        )}
+      <!-- Certificates Grid/List -->
+      <div class="w-full space-y-16">
+        {award.certificates.map((cert, index) => (
+          <div class="w-full flex flex-col gap-6">
+            <div class="flex items-center gap-4">
+               <span class="text-xl font-mono text-white/30 light:text-black/30 font-bold">
+                 {(index + 1).toString().padStart(2, '0')}
+               </span>
+               <div>
+                 <h2 class="text-2xl font-bold font-display">{cert.title}</h2>
+                 <p class="text-sm font-mono text-white/50 light:text-black/50 mt-1">{cert.description}</p>
+               </div>
+            </div>
+            
+            <div class="w-full rounded-2xl overflow-hidden border border-white/10 light:border-black/10 shadow-2xl relative bg-black/20 light:bg-white/50 backdrop-blur-sm p-4 md:p-8 flex items-center justify-center">
+              {cert.image ? (
+                <img 
+                  src={cert.image} 
+                  alt={`${cert.title} Certificate`} 
+                  class="w-full h-auto max-h-[70vh] object-contain rounded-lg"
+                />
+              ) : (
+                <div class="text-white/40 light:text-black/40 font-mono text-sm py-20">Certificate Image Pending</div>
+              )}
+            </div>
+            
+            {cert.link && (
+              <div class="flex justify-end">
+                <a 
+                  href={cert.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="group relative inline-flex items-center justify-center px-6 py-3 font-mono font-bold tracking-widest text-xs text-black bg-white rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95"
+                >
+                  <span class="relative z-10 flex items-center gap-2">
+                    VERIFY CREDENTIAL
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            )}
+            
+            {index < award.certificates.length - 1 && (
+               <div class="w-full h-[1px] bg-white/5 light:bg-black/5 my-8"></div>
+            )}
+          </div>
+        ))}
       </div>
-
-      <!-- External Link (if applicable) -->
-      {award.link && (
-        <div class="mt-12 flex justify-center">
-          <a 
-            href={award.link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="group relative inline-flex items-center justify-center px-8 py-4 font-mono font-bold tracking-widest text-sm text-black bg-white rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95"
-          >
-            <span class="relative z-10 flex items-center gap-2">
-              VERIFY CREDENTIAL
-              <svg class="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </span>
-          </a>
-        </div>
-      )}
       
     </div>
   </div>

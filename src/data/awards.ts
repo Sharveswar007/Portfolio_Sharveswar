@@ -1,94 +1,122 @@
-export interface Award {
+export interface Certificate {
+  title: string;
+  image: string;
+  description: string;
+  link?: string;
+}
+
+export interface AwardCategory {
   id: number;
   slug: string;
   color: string;
-  title: string;
+  title: string; // The category name shown on the card
   issuer: string;
   logo: string;
-  fullImage: string;
   description: string;
-  link?: string; // Optional external verification link
+  certificates: Certificate[];
 }
 
-export const AWARDS: Award[] = [
+export const AWARDS: AwardCategory[] = [
   { 
     id: 1, 
-    slug: "salesforce-agentforce",
+    slug: "salesforce",
     color: "#3b82f6", 
-    title: "Salesforce Agentforce Specialist", 
+    title: "Salesforce Certifications", 
     issuer: "Salesforce", 
     logo: "/images/awards/salesforce.svg",
-    fullImage: "/photos/tokyo-shinjuku-2/image-1.jpg", // Placeholder for actual certificate
-    description: "Achieved the Salesforce Agentforce Specialist certification, demonstrating expertise in AI-driven CRM solutions, automated agent workflows, and intelligent customer engagement platforms."
+    description: "Official certifications demonstrating expertise in AI-driven CRM solutions, automated agent workflows, and intelligent customer engagement platforms.",
+    certificates: [
+      {
+        title: "Salesforce Agentforce Specialist",
+        image: "/photos/tokyo-shinjuku-2/image-1.jpg", // Placeholder for actual certificate
+        description: "Achieved the Salesforce Agentforce Specialist certification.",
+      }
+      // You can add more Salesforce certs here!
+    ]
   },
   { 
     id: 2, 
-    slug: "hackathon-sharpalthon",
-    color: "#fb923c", 
-    title: "3rd Prize — SharpAlthon", 
-    issuer: "Hackathon", 
-    logo: "/images/awards/hackathon.svg", 
-    fullImage: "/photos/tokyo-shinjuku-2/image-2.jpg",
-    description: "Awarded 3rd Prize at the SharpAlthon Hackathon for developing an innovative, high-performance software solution under extreme time constraints."
+    slug: "amazon-web-services",
+    color: "#34d399", 
+    title: "AWS Certifications", 
+    issuer: "Amazon Web Services", 
+    logo: "/images/awards/aws.svg", 
+    description: "Certified by Amazon Web Services in Cloud and Machine Learning Foundations, validating a comprehensive understanding of AWS infrastructure and AI model deployment.",
+    certificates: [
+      {
+        title: "AWS Cloud Foundations",
+        image: "/photos/tokyo-shinjuku-2/image-3.jpg",
+        description: "Validating a comprehensive understanding of AWS infrastructure, security, pricing, and core architectural principles."
+      },
+      {
+        title: "AWS Machine Learning Foundations",
+        image: "/photos/tokyo-shinjuku-2/image-4.jpg",
+        description: "Mastering the deployment of scalable AI models and predictive analytics using AWS SageMaker and associated services."
+      }
+    ]
   },
   { 
     id: 3, 
-    slug: "aws-cloud-foundations",
-    color: "#34d399", 
-    title: "AWS Cloud Foundations", 
-    issuer: "Amazon Web Services", 
-    logo: "/images/awards/aws.svg", 
-    fullImage: "/photos/tokyo-shinjuku-2/image-3.jpg",
-    description: "Certified by Amazon Web Services in Cloud Foundations, validating a comprehensive understanding of AWS infrastructure, security, pricing, and core architectural principles."
+    slug: "hackathons",
+    color: "#fb923c", 
+    title: "Hackathon Awards", 
+    issuer: "Hackathons", 
+    logo: "/images/awards/hackathon.svg", 
+    description: "Awards and recognition from participating in competitive, time-constrained hackathons.",
+    certificates: [
+      {
+        title: "3rd Prize — SharpAlthon",
+        image: "/photos/tokyo-shinjuku-2/image-2.jpg",
+        description: "Awarded 3rd Prize at the SharpAlthon Hackathon for developing an innovative, high-performance software solution under extreme time constraints."
+      }
+    ]
   },
   { 
     id: 4, 
-    slug: "aws-ml-foundations",
-    color: "#818cf8", 
-    title: "AWS ML Foundations", 
-    issuer: "Amazon Web Services", 
-    logo: "/images/awards/aws.svg", 
-    fullImage: "/photos/tokyo-shinjuku-2/image-4.jpg",
-    description: "Completed the AWS Machine Learning Foundations program, mastering the deployment of scalable AI models and predictive analytics using AWS SageMaker and associated services."
+    slug: "nptel",
+    color: "#38bdf8", 
+    title: "NPTEL & IIT Certifications", 
+    issuer: "NPTEL / IIT", 
+    logo: "/images/awards/nptel.png", 
+    description: "Rigorous academic certifications administered by the Indian Institutes of Technology (IIT) via NPTEL.",
+    certificates: [
+      {
+        title: "DSA using Java (12-Week)",
+        image: "/photos/tokyo-shinjuku-2/image-1.jpg",
+        description: "Successfully completed a rigorous 12-week Data Structures and Algorithms curriculum."
+      }
+    ]
   },
   { 
     id: 5, 
-    slug: "best-project-careerpath",
-    color: "#c4b5fd", 
-    title: "Best Project — CareerPath AI", 
-    issuer: "SRM Placement Cell", 
-    logo: "/images/logo/careerpath_logo.png", 
-    fullImage: "/photos/tokyo-shinjuku-2/image-8.jpg",
-    description: "Recognized by the SRM Placement Cell for building CareerPath AI, securing the Best Project award for its immediate impact on student career discovery and resume optimization."
+    slug: "coding-platforms",
+    color: "#fbbf24", 
+    title: "Coding Platforms", 
+    issuer: "LeetCode & HackerRank", 
+    logo: "/images/awards/coding_platforms.png", 
+    description: "Achievements across competitive programming platforms validating advanced algorithmic problem-solving capabilities and language mastery.",
+    certificates: [
+      {
+        title: "HackerRank 5★ C++ & 4★ Python",
+        image: "/photos/tokyo-shinjuku-2/image-2.jpg",
+        description: "Achieved a 5-star rating in C++ and a 4-star rating in Python on HackerRank."
+      }
+    ]
   },
   { 
     id: 6, 
-    slug: "dsa-using-java",
-    color: "#38bdf8", 
-    title: "DSA using Java (12-Week)", 
-    issuer: "NPTEL / IIT", 
-    logo: "/images/awards/nptel.png", 
-    fullImage: "/photos/tokyo-shinjuku-2/image-1.jpg",
-    description: "Successfully completed a rigorous 12-week Data Structures and Algorithms curriculum administered by the Indian Institutes of Technology (IIT) via NPTEL."
-  },
-  { 
-    id: 7, 
-    slug: "hackerrank-stars",
-    color: "#fbbf24", 
-    title: "HackerRank 5★ C++ & 4★ Python", 
-    issuer: "HackerRank", 
-    logo: "/images/awards/hackerrank.svg", 
-    fullImage: "/photos/tokyo-shinjuku-2/image-2.jpg",
-    description: "Achieved a 5-star rating in C++ and a 4-star rating in Python on HackerRank, validating advanced algorithmic problem-solving capabilities and language mastery."
-  },
-  { 
-    id: 8, 
-    slug: "certificate-of-appreciation",
+    slug: "futurix-tech-club",
     color: "#f472b6", 
-    title: "Certificate of Appreciation", 
-    issuer: "Futurix Tech Club", 
-    logo: "/images/logo/ultron_logo.png", 
-    fullImage: "/photos/tokyo-shinjuku-2/image-3.jpg",
-    description: "Received a Certificate of Appreciation from the Futurix Tech Club for outstanding technical contributions and leadership within the organization."
+    title: "Futurix Tech Club", 
+    issuer: "Leadership & Contribution", 
+    logo: "/images/awards/futurix_logo.png", 
+    description: "Awards and certificates recognizing outstanding technical contributions and leadership within the organization.",
+    certificates: [
+      {
+        title: "Certificate of Appreciation",
+        image: "/photos/tokyo-shinjuku-2/image-3.jpg",
+        description: "Received a Certificate of Appreciation from the Futurix Tech Club for outstanding technical contributions."
+      }
+    ]
   },
 ];
