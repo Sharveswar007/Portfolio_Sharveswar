@@ -16,10 +16,11 @@ export const EXPERIENCES: Experience[] = [
     duration: "Recent",
     location: "Chennai, TN",
     description: [
-      "Completed a professional internship at Tata Elxsi, contributing to technical engineering projects.",
-      "Gained hands-on industry experience and exposure to real-world development environments."
+      "Contributed to a live, highly confidential enterprise project within the networking domain.",
+      "Engineered and optimized high-performance message routing and data streaming using NATS JetStream.",
+      "Conducted full-fledged system benchmarking and stress testing to ensure robust performance, latency optimization, and scalability."
     ],
-    skills: ["Engineering", "Development", "Industry Experience"]
+    skills: ["NATS JetStream", "Networking", "Benchmarking", "Performance Testing"]
   },
   {
     id: 2,
