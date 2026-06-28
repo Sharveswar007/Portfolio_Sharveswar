@@ -77,7 +77,7 @@ export const AWARDS: AwardCategory[] = [
     color: "#38bdf8", 
     title: "NPTEL & IIT Certifications", 
     issuer: "NPTEL / IIT", 
-    logo: "/images/awards/nptel.png", 
+    logo: "/images/awards/nptel_official.svg", 
     description: "Rigorous academic certifications administered by the Indian Institutes of Technology (IIT) via NPTEL.",
     certificates: [
       {
