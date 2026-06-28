@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion"
 import React, { useRef, useState, useEffect } from "react"
+import { AWARDS } from "../data/awards"
 
 export default function Awards() {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -224,10 +225,11 @@ export default function Awards() {
                 </div>
 
                 {/* Certification Cards */}
-                {items.map((item) => (
-                    <div
+                {AWARDS.map((item) => (
+                    <a
+                        href={`/awards/${item.slug}`}
                         key={item.id}
-                        className="cert-card flex-shrink-0 w-[280px] h-[360px] sm:w-[340px] sm:h-[420px] lg:w-[480px] lg:h-[550px] rounded-2xl relative overflow-hidden border shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] light:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2 hover:scale-[1.015] hover:border-white/20 light:hover:border-black/20 cursor-pointer"
+                        className="cert-card flex-shrink-0 w-[280px] h-[360px] sm:w-[340px] sm:h-[420px] lg:w-[480px] lg:h-[550px] rounded-2xl relative overflow-hidden border shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] light:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2 hover:scale-[1.015] hover:border-white/20 light:hover:border-black/20 cursor-pointer block"
                         style={{ 
                             '--card-accent-fade': `${item.color}0a`,
                             '--card-accent-fade-light': `${item.color}06`
@@ -236,7 +238,7 @@ export default function Awards() {
                         {/* Blended Certification Image Overlay */}
                         <div 
                             className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay z-10" 
-                            style={{ backgroundImage: `url(${item.image})` }}
+                            style={{ backgroundImage: `url(${item.logo})` }}
                         />
 
                         {/* Theme-aware bottom gradient overlay */}
@@ -253,13 +255,13 @@ export default function Awards() {
                                 0{item.id}
                             </span>
                             <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold font-display text-cream-soft light:text-midnight-black leading-tight tracking-tight">
-                                {item.label}
+                                {item.title}
                             </h2>
                             <p className="text-[10px] sm:text-xs font-mono text-white/40 light:text-black/40 uppercase tracking-widest mt-2.5">
                                 {item.issuer}
                             </p>
                         </div>
-                    </div>
+                    </a>
                 ))}
             </motion.div>
 
@@ -328,16 +330,5 @@ function StyleSheet() {
 }
 
 /**
- * ==============   Data   ================
+ * ==============   Data Extracted to src/data/awards.ts   ================
  */
-
-const items = [
-    { id: 1, color: "#3b82f6", label: "Salesforce Agentforce Specialist", issuer: "Salesforce", image: "/photos/tokyo-shinjuku-2/image-1.jpg" },
-    { id: 2, color: "#fb923c", label: "3rd Prize — SharpAlthon", issuer: "Hackathon", image: "/photos/tokyo-shinjuku-2/image-2.jpg" },
-    { id: 3, color: "#34d399", label: "AWS Cloud Foundations", issuer: "Amazon Web Services", image: "/photos/tokyo-shinjuku-2/image-3.jpg" },
-    { id: 4, color: "#818cf8", label: "AWS ML Foundations", issuer: "Amazon Web Services", image: "/photos/tokyo-shinjuku-2/image-4.jpg" },
-    { id: 5, color: "#c4b5fd", label: "Best Project — CareerPath AI", issuer: "SRM Placement Cell", image: "/photos/tokyo-shinjuku-2/image-8.jpg" },
-    { id: 6, color: "#38bdf8", label: "DSA using Java (12-Week)", issuer: "NPTEL / IIT", image: "/photos/tokyo-shinjuku-2/image-1.jpg" },
-    { id: 7, color: "#fbbf24", label: "HackerRank 5★ C++ & 4★ Python", issuer: "HackerRank", image: "/photos/tokyo-shinjuku-2/image-2.jpg" },
-    { id: 8, color: "#f472b6", label: "Certificate of Appreciation", issuer: "Futurix Tech Club", image: "/photos/tokyo-shinjuku-2/image-3.jpg" },
-]
