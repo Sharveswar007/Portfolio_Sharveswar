@@ -3,45 +3,38 @@ import { motion, useScroll, useTransform, useVelocity, useSpring, useMotionValue
 import { EXPERIENCES } from '../data/experience';
 
 function VelocityPanel({ exp, index, scrollYProgress }: { exp: any, index: number, scrollYProgress: any }) {
-  // We have 3 experiences. Peak visibility points for each: 0, 0.5, 1.0.
-  const peak = index / (EXPERIENCES.length - 1); 
+  // We have 3 experiences. Peak visibility points for each: 0.1, 0.5, 0.9.
+  const peak = index === 0 ? 0.15 : index === 1 ? 0.5 : 0.85;
 
-  // Z-axis movement: Deep behind (-3000) -> Center (0) -> Flown past (2000)
-  const z = useTransform(
+  // Scale: Tiny (far) -> 1 (center) -> Massive (flown past)
+  const scale = useTransform(
     scrollYProgress, 
-    [peak - 0.5, peak, peak + 0.5], 
-    [-3000, 0, 2000]
+    [peak - 0.4, peak, peak + 0.4], 
+    [0.1, 1, 5]
   );
 
   // Opacity: Invisible when far, fully opaque at center, invisible when flown past
   const opacity = useTransform(
     scrollYProgress,
-    [peak - 0.4, peak - 0.1, peak + 0.1, peak + 0.3],
+    [peak - 0.3, peak - 0.05, peak + 0.05, peak + 0.3],
     [0, 1, 1, 0]
   );
   
   // Motion blur effect for high speed depth
   const filter = useTransform(
     scrollYProgress,
-    [peak - 0.5, peak - 0.1, peak + 0.1, peak + 0.4],
+    [peak - 0.4, peak - 0.1, peak + 0.1, peak + 0.4],
     ["blur(20px)", "blur(0px)", "blur(0px)", "blur(30px)"]
-  );
-
-  // Scale aggressively when flying past the camera to create breaking-bounds effect
-  const scale = useTransform(
-    scrollYProgress,
-    [peak, peak + 0.4],
-    [1, 4]
   );
 
   return (
     <motion.div
       className="absolute w-full max-w-6xl px-4 sm:px-8 lg:px-12 flex flex-col items-center justify-center pointer-events-none"
       style={{
-        z,
+        scale,
         opacity,
         filter,
-        scale,
+        zIndex: useTransform(scrollYProgress, (v) => (v >= peak ? 50 : 10))
       }}
     >
       <div className="w-full bg-white/5 light:bg-black/5 border border-white/10 light:border-black/10 backdrop-blur-2xl p-6 sm:p-12 lg:p-16 rounded-3xl shadow-2xl relative overflow-hidden">
@@ -162,18 +155,17 @@ export default function Experience() {
             ))}
           </motion.div>
 
-          {/* 3D Perspective Tunnel Camera */}
+          {/* Infinite Zoom Tunnel Camera */}
           <motion.div 
             className="absolute inset-0 w-full h-full flex items-center justify-center"
-            style={{ perspective: '1200px' }}
             animate={shake ? {
               x: [0, -15, 15, -8, 8, 0],
               y: [0, 8, -8, 4, -4, 0],
             } : {}}
             transition={{ duration: 0.25, ease: "easeOut" }}
           >
-            {/* 3D Space where panels are transformed on the Z axis */}
-            <div className="relative w-full h-full flex items-center justify-center [transform-style:preserve-3d]">
+            {/* Space where panels are transformed via scale */}
+            <div className="relative w-full h-full flex items-center justify-center">
               {EXPERIENCES.map((exp, index) => (
                 <VelocityPanel key={exp.id} exp={exp} index={index} scrollYProgress={scrollYProgress} />
               ))}
