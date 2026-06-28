@@ -11,41 +11,40 @@ export interface Experience {
 export const EXPERIENCES: Experience[] = [
   {
     id: 1,
-    role: "Full Stack Engineer Intern",
-    company: "Tech Innovators Inc.",
-    duration: "June 2024 - Present",
-    location: "Remote",
+    role: "Intern",
+    company: "Tata Elxsi",
+    duration: "Recent",
+    location: "Chennai, TN",
     description: [
-      "Engineered high-performance web applications using React and Node.js, improving load times by 40%.",
-      "Designed and implemented RESTful APIs to integrate machine learning pipelines for predictive analytics.",
-      "Collaborated with cross-functional teams in an Agile environment to deliver features ahead of schedule."
+      "Completed a professional internship at Tata Elxsi, contributing to technical engineering projects.",
+      "Gained hands-on industry experience and exposure to real-world development environments."
     ],
-    skills: ["React", "Node.js", "TypeScript", "AWS"]
+    skills: ["Engineering", "Development", "Industry Experience"]
   },
   {
     id: 2,
-    role: "AI/ML Research Assistant",
-    company: "University Lab",
-    duration: "Jan 2023 - May 2024",
-    location: "Chennai, India",
+    role: "Full Stack Web Development Intern",
+    company: "InternsForge",
+    duration: "Jul 2025 - Oct 2025",
+    location: "Remote",
     description: [
-      "Developed deep learning models for computer vision tasks using PyTorch, achieving 95% accuracy on benchmark datasets.",
-      "Published a research paper on optimizing neural networks for edge computing devices.",
-      "Mentored junior students in foundational data science concepts and Python programming."
+      "Built and deployed full-stack web applications using HTML, CSS, JavaScript, Node.js, and MongoDB.",
+      "Completed rigorous milestones in REST API development, backend architecture, and responsive front-end design.",
+      "Received a prestigious Certificate of Appreciation for exceptional performance."
     ],
-    skills: ["Python", "PyTorch", "OpenCV", "TensorFlow"]
+    skills: ["React.js", "Node.js", "MongoDB", "REST APIs", "Tailwind CSS"]
   },
   {
     id: 3,
-    role: "Software Developer Intern",
-    company: "Startup Hub",
-    duration: "May 2022 - Aug 2022",
-    location: "Bangalore, India",
+    role: "Foundations of Artificial Intelligence Intern",
+    company: "Microsoft & AICTE",
+    duration: "Apr 2025 - May 2025",
+    location: "Remote",
     description: [
-      "Built a highly responsive front-end dashboard for a fintech application using Tailwind CSS and React.",
-      "Integrated third-party payment gateways, securing transactions for over 10,000 active users.",
-      "Optimized database queries in PostgreSQL, reducing data retrieval latency by 30%."
+      "Completed a structured 4-week AI program under the guidance of Microsoft, Edunet Foundation, and AICTE.",
+      "Gained foundational knowledge and practical skills in neural networks, model training, and AI algorithms.",
+      "Studied the implementation of ethical AI principles in modern software development."
     ],
-    skills: ["JavaScript", "React", "PostgreSQL", "Tailwind CSS"]
+    skills: ["Artificial Intelligence", "Neural Networks", "Model Training", "Python"]
   }
 ];
