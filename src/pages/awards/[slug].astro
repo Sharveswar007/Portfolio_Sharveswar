@@ -68,13 +68,21 @@ const { award } = Astro.props;
             
             <div class="w-full rounded-2xl overflow-hidden border border-white/10 light:border-black/10 shadow-2xl relative bg-black/20 light:bg-white/50 backdrop-blur-sm p-4 md:p-8 flex items-center justify-center">
               {cert.image ? (
-                <img 
-                  src={cert.image} 
-                  alt={`${cert.title} Certificate`} 
-                  class="w-full h-auto max-h-[70vh] object-contain rounded-lg"
-                />
+                cert.image.toLowerCase().endsWith('.pdf') ? (
+                  <embed 
+                    src={`${cert.image}#toolbar=0&navpanes=0&scrollbar=0`} 
+                    type="application/pdf" 
+                    class="w-full h-[60vh] md:h-[75vh] rounded-lg"
+                  />
+                ) : (
+                  <img 
+                    src={cert.image} 
+                    alt={`${cert.title} Certificate`} 
+                    class="w-full h-auto max-h-[70vh] object-contain rounded-lg"
+                  />
+                )
               ) : (
-                <div class="text-white/40 light:text-black/40 font-mono text-sm py-20">Certificate Image Pending</div>
+                <div class="text-white/40 light:text-black/40 font-mono text-sm py-20">Certificate Pending</div>
               )}
             </div>
             
