@@ -63,8 +63,8 @@ function ProjectSlide({ project, index }: { project: Project; index: number }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none" />
 
           {/* Bottom Right Logo Overlay (Positioned to cover video watermark) */}
-          <div className="absolute bottom-6 lg:bottom-24 right-16 z-20 w-16 h-16 sm:w-24 sm:h-24 sm:right-20 rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black/40 backdrop-blur-md pointer-events-none">
-            <img src={project.logo} alt={`${project.title} logo`} loading="lazy" width="96" height="96" className="w-full h-full object-cover" />
+          <div className="absolute bottom-6 lg:bottom-24 right-16 z-20 w-16 h-16 sm:w-24 sm:h-24 sm:right-20 rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black/40 backdrop-blur-md pointer-events-none flex items-center justify-center p-3 sm:p-4">
+            <img src={project.logo} alt={`${project.title} logo`} loading="lazy" width="96" height="96" className="w-full h-full object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
           </div>
 
           {/* Minimal overlay text at the bottom (Nested inside container to lock position) */}
