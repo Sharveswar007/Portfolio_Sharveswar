@@ -170,7 +170,7 @@ export const PROJECTS: Project[] = [
     title: "Type plus",
     subtitle: "Modern Typing Test Dashboard",
     github: "https://github.com/Sharveswar007/Type-plus",
-    live: "#",
+    live: "https://sharveswar007.github.io/Type-plus/",
     image: "/videos/TypeAI Plus.mp4",
     logo: "/images/logo/typeai_logo.png",
     mediaType: "video",
