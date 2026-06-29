@@ -60,7 +60,7 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/Sharveswar007/HR-portal",
     github2: "https://github.com/Sharveswar007/Candidate-Portal",
     live: "https://hirenex-hr.vercel.app/login",
-    live2: "#",
+    live2: "https://hirenex-candidate.vercel.app/",
     image: "/videos/HIRENEX.mp4",
     logo: "/images/logo/hirenex_logo.png",
     mediaType: "video",
