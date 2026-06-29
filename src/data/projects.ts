@@ -193,7 +193,7 @@ export const PROJECTS: Project[] = [
     title: "Sisco AI Chatbot",
     subtitle: "Conversational Interface",
     github: "https://github.com/Sharveswar007/Sisco-AI-Chatbot",
-    live: "https://celebrated-cendol-40ca35.netlify.app/",
+    live: "https://siscoai.netlify.app/",
     image: "/videos/Sisco AI Chatbot.mp4",
     logo: "/images/logo/sisco_logo.png",
     mediaType: "video",
