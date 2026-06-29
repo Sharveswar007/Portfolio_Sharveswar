@@ -27,7 +27,7 @@ function ProjectSlide({ project, index }: { project: Project; index: number }) {
   const contentY = useTransform(scrollYProgress, [0.2, 0.4, 0.75, 0.9], [30, 0, 0, -20]);
 
   return (
-    <section ref={ref} className="h-[150vh] w-full relative" style={{ zIndex: 20 }}>
+    <section ref={ref} className={`h-[150vh] w-full relative ${index > 0 ? '-mt-[20vh] lg:-mt-[30vh]' : ''}`} style={{ zIndex: 20 }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Image/Video container — margin + border-radius animate */}
         <motion.div
