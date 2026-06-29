@@ -171,9 +171,9 @@ export const PROJECTS: Project[] = [
     subtitle: "AI Typing Mastery",
     github: "https://github.com/Sharveswar007/TypeAI-plus",
     live: "#",
-    image: "/images/projects/typeai.svg",
+    image: "/videos/TypeAI Plus.mp4",
     logo: "/images/logo/typeai_logo.png",
-    mediaType: "image",
+    mediaType: "video",
     description: "TypeAI-plus is an AI-driven web application designed to unleash the power of typing mastery. It provides a fast, fun, and intelligent typing experience by adapting to the user's skill level and providing real-time feedback and dynamic text generation to keep practice sessions engaging.",
     technologies: ["Python", "React", "AI Models", "WebSockets"],
     features: [
@@ -190,9 +190,9 @@ export const PROJECTS: Project[] = [
     subtitle: "Conversational Interface",
     github: "https://github.com/Sharveswar007/Sisco-AI-Chatbot",
     live: "https://celebrated-cendol-40ca35.netlify.app/",
-    image: "/images/projects/sisco.svg",
+    image: "/videos/Sisco AI Chatbot.mp4",
     logo: "/images/logo/sisco_logo.png",
-    mediaType: "image",
+    mediaType: "video",
     description: "Sisco AI is a lightweight conversational chatbot interface built for rapid deployment. It provides a seamless, responsive UI for users to interact with underlying LLM APIs, featuring real-time message streaming, conversation history, and a modern chat aesthetic.",
     technologies: ["JavaScript", "HTML5", "CSS3", "LLM APIs", "Netlify"],
     features: [
